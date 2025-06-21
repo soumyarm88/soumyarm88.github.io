@@ -19,31 +19,29 @@
             min-height: 100vh;
         }
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
             width: 100%;
             background-color: #222;
             color: white;
             text-align: left;
-            padding: 1rem 2rem;
+            padding: 0.25rem 2rem;
             box-sizing: border-box;
         }
         footer {
-            position: fixed;
+            position: sticky;
             bottom: 0;
             width: 100%;
             background-color: #222;
             color: white;
             text-align: left;
-            padding: 1rem 2rem;
+            padding: 0.1rem 2rem;
             box-sizing: border-box;
         }
         main {
             flex: 1;
             padding: 2rem;
             max-width: 160rch;
-            margin-top: 100px; /* Adjust this value based on your header height */
-            margin-bottom: 100px; /* Adjust this value based on your footer height */
         }
         h1 {
             color: #007bff;
@@ -54,6 +52,12 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        li {
+            padding: 0.5rem 0;
+        }
+        li:last-child {
+            margin-bottom: 0;
         }
     </style>
 </head>
@@ -75,9 +79,17 @@
         </p>
     </section>
     <section>
-        <h2>My Portfolio</h2>
+        <h2>My <a href="https://github.com/soumyarm88">GitHub</a> Repos</h2>
         <ul>
-            <li>Please visit my <a href="https://github.com/soumyarm88">GitHub Profile</a></li>
+            <li><a href="https://github.com/soumyarm88/house-price-predictor">House price predictor</a> using linear regression. Leverages scikit-learn and FastAPI.</li>
+            <li><a href="https://github.com/soumyarm88/transformer">Transformer</a> is a library to transform attribute-based objects between different representations like SCIM, LDIF, etc. Kotlin + Gradle.</li>
+            <li><a href="https://github.com/soumyarm88/formfill-extension">FormFill</a> is a Chrome browser extension that lets you quickly populate HTML text fields with preset values. It can save, edit, and delete frequently used text entries as presets. It also supports bulk import and export of presets. It offers a one-click fill experience with visual feedback for efficiency and usability.</li>
+            <li><a href="https://github.com/soumyarm88/observer">Observer</a> demonstrates lightweight method execution time logging with AOP.</li>
+            <li><a href="https://github.com/soumyarm88/blockchain">Blockchain</a> is a simple implementation of blockchain data-structure.</li>
+            <li><a href="https://github.com/soumyarm88/nn-zero-to-hero">NN-zero-to-hero</a> personal fork of Andrej Karpathy’s “Neural Networks: Zero to Hero” series for self-learning.</li>
+            <li><a href="https://github.com/soumyarm88/formfill-extension">DevEnv</a> contains my personal shell configurations, Vim, Git, and various command line apps. It helps me quickly set-up or reset my dev env.</li>
+            <li><a href="https://github.com/soumyarm88/tutorial">Tutorial</a> for publishing packages in GitHub.</li>
+            <li><a href="https://github.com/soumyarm88/blockchain">Diagrams</a> repository for drawio scripts.</li>
         </ul>
     </section>
     <section>
