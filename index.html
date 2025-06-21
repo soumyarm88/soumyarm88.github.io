@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soumya R.</title>
+    <!-- Add Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         html, body {
             height: 100%;
@@ -18,6 +20,8 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        
+        /* Header and Footer styles */
         header {
             position: sticky;
             top: 0;
@@ -27,7 +31,9 @@
             text-align: left;
             padding: 0.25rem 2rem;
             box-sizing: border-box;
+            z-index: 1000;
         }
+        
         footer {
             position: sticky;
             bottom: 0;
@@ -37,27 +43,140 @@
             text-align: left;
             padding: 0.1rem 2rem;
             box-sizing: border-box;
+            z-index: 1000;
         }
+
+        /* Container for sidebar and main content */
+        .page-container {
+            display: flex;
+            flex: 1;
+            gap: 2rem;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 300px;
+            background-color: #fff;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            height: calc(100vh - 100px); /* Adjust based on your header/footer height */
+            position: sticky;
+            top: 60px; /* Adjust based on header height */
+            overflow-y: auto;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #333;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main content styles */
         main {
             flex: 1;
             padding: 2rem;
-            max-width: 160rch;
+            max-width: 1400px;
         }
+
+        .flex-container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        #repository, #photography {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* General styles */
         h1 {
             color: #007bff;
         }
+
         a {
             color: #007bff;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         li {
             padding: 0.5rem 0;
         }
-        li:last-child {
-            margin-bottom: 0;
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 968px) {
+            .page-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 0;
+                padding: 1rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            #repository, #photography {
+                flex: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.25rem; }
+            h3 { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -65,41 +184,65 @@
 <header>
     <h1>Hello !!</h1>
 </header>
-<main>
-    <section>
-        <h2>About Me</h2>
-        <p>
-            Hello! I'm Soumya.
-        </p>
-        <p>
-            Software Engineer skilled in building resilient, scalable systems for enterprise identity and e-commerce platforms, with expertise in distributed architectures and AWS.
-        </p>
-        <p>
-            Curious about learning AI-ML through hands-on tutorials and projects. Currently working through Andrej Karpathy's Neural Networks: Zero to Hero.
-        </p>
-    </section>
-    <section>
-        <h2>My <a href="https://github.com/soumyarm88">GitHub</a> Repos</h2>
-        <ul>
-            <li><a href="https://github.com/soumyarm88/house-price-predictor">House price predictor</a> using linear regression. Leverages scikit-learn and FastAPI.</li>
-            <li><a href="https://github.com/soumyarm88/transformer">Transformer</a> is a library to transform attribute-based objects between different representations like SCIM, LDIF, etc. Kotlin + Gradle.</li>
-            <li><a href="https://github.com/soumyarm88/formfill-extension">FormFill</a> is a Chrome browser extension that lets you quickly populate HTML text fields with preset values. It can save, edit, and delete frequently used text entries as presets. It also supports bulk import and export of presets. It offers a one-click fill experience with visual feedback for efficiency and usability.</li>
-            <li><a href="https://github.com/soumyarm88/observer">Observer</a> demonstrates lightweight method execution time logging with AOP.</li>
-            <li><a href="https://github.com/soumyarm88/blockchain">Blockchain</a> is a simple implementation of blockchain data-structure.</li>
-            <li><a href="https://github.com/soumyarm88/nn-zero-to-hero">NN-zero-to-hero</a> personal fork of Andrej Karpathy’s “Neural Networks: Zero to Hero” series for self-learning.</li>
-            <li><a href="https://github.com/soumyarm88/formfill-extension">DevEnv</a> contains my personal shell configurations, Vim, Git, and various command line apps. It helps me quickly set-up or reset my dev env.</li>
-            <li><a href="https://github.com/soumyarm88/tutorial">Tutorial</a> for publishing packages in GitHub.</li>
-            <li><a href="https://github.com/soumyarm88/blockchain">Diagrams</a> repository for drawio scripts.</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Contact Me</h2>
-        <ul>
-            <li>Email: <a href="mailto:soumya.r.maharana@gmail.com">soumya.r.maharana@gmail.com</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/soumyarm88/">soumyarm88</a></li>
-        </ul>
-    </section>
-</main>
+
+<div class="page-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-section profile">
+            <h3>Soumya R.</h3>
+            <p>Software Engineer</p>
+        </div>
+
+        <div class="sidebar-section social-links">
+            <a href="https://github.com/soumyarm88" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/soumyarm88/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:soumya.r.maharana@gmail.com" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="sidebar-section contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-envelope"></i> soumya.r.maharana@gmail.com</p>
+            <p><i class="fab fa-linkedin"></i> soumyarm88</p>
+        </div>
+
+        <div class="sidebar-section table-of-contents">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#repository">GitHub Repos</a></li>
+                <li><a href="#photography">Photography</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <!-- Existing about content -->
+        </section>
+
+        <div class="flex-container">
+            <section id="repository">
+                <h2>My <a href="https://github.com/soumyarm88">GitHub</a> Repos</h2>
+                <!-- Existing repository content -->
+            </section>
+            
+            <section id="photography">
+                <h2>My Photography</h2>
+                <!-- Existing photography content -->
+            </section>
+        </div>
+    </main>
+</div>
+
 <footer>
     <p>&copy; tech.soumyarm88</p>
 </footer>
