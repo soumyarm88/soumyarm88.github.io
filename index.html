@@ -6,44 +6,41 @@
     <title>Soumya R.</title>
     <!-- Add Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type='text/javascript' src='https://500px.com/embed.js'></script>
+    <script>
+        fetch('github-repos.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('github-repository');
+                let html = '';
+                html += `<ul>`;
+                data.items.forEach(repo => {
+                    html += `<div class="text-card">
+                                <li>
+                                    <p><a href="${repo.url}">${repo.name}</a></p>
+                                    <p>${repo.description}</p>
+                                </li>
+                             </div>`;
+                });
+                html += `</ul>`;
+                container.innerHTML += html;
+            })
+            .catch(error => alert(error));
+    </script>
     <style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
+
         body {
             font-family: sans-serif;
-            background-color: #f4f4f4;
+            background-color: #fff;
             color: #333;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-        }
-        
-        /* Header and Footer styles */
-        header {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background-color: #222;
-            color: white;
-            text-align: left;
-            padding: 0.25rem 2rem;
-            box-sizing: border-box;
-            z-index: 1000;
-        }
-        
-        footer {
-            position: sticky;
-            bottom: 0;
-            width: 100%;
-            background-color: #222;
-            color: white;
-            text-align: left;
-            padding: 0.1rem 2rem;
-            box-sizing: border-box;
-            z-index: 1000;
         }
 
         /* Container for sidebar and main content */
@@ -53,16 +50,18 @@
             gap: 2rem;
         }
 
+        .topbar {
+            display: none;
+        }
+
         /* Sidebar styles */
         .sidebar {
-            width: 300px;
+            position: fixed;
+            width: 20vw;
+            height: 100vh;
             background-color: #fff;
             padding: 2rem;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            height: calc(100vh - 100px); /* Adjust based on your header/footer height */
-            position: sticky;
-            top: 60px; /* Adjust based on header height */
-            overflow-y: auto;
         }
 
         .sidebar-section {
@@ -72,6 +71,11 @@
         .sidebar-section h3 {
             color: #007bff;
             margin-bottom: 1rem;
+        }
+
+        .profile ul {
+            list-style: none;
+            padding: 0.25rem 0;
         }
 
         .social-links {
@@ -90,9 +94,18 @@
             color: #007bff;
         }
 
+        .contact-info {
+            display: compact;
+            position: fixed;
+            width: 20vw;
+            bottom: 0;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
         .table-of-contents ul {
             list-style: none;
-            padding: 0;
+            padding: 0.25rem 0;
         }
 
         .table-of-contents li {
@@ -101,27 +114,10 @@
 
         /* Main content styles */
         main {
+            margin-left: 25vw;
             flex: 1;
-            padding: 2rem;
-            max-width: 1400px;
-        }
-
-        .flex-container {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        #repository, #photography {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+            padding: 2rem 6rem 2rem 2rem;
+            max-width: 800px;
         }
 
         /* General styles */
@@ -138,8 +134,34 @@
             text-decoration: underline;
         }
 
-        li {
+        .main-content ul {
+            display: grid;
+            grid-gap: 1rem;
+            list-style-type: none;
+            padding: 1rem 0;
+        }
+
+        .main-content li {
             padding: 0.5rem 0;
+        }
+
+        .text-card ul {
+            display: grid;
+            grid-gap: 1rem;
+            list-style-type: none;
+            padding: 1rem 0;
+        }
+
+        .text-card li {
+            padding: 0.5rem 0;
+        }
+
+        .text-card {
+            text-align: justify;
+            background: white;
+            padding: 0.1rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         /* Mobile responsiveness */
@@ -149,23 +171,23 @@
             }
 
             .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                top: 0;
-                padding: 1rem;
+                display: none;
             }
 
-            .social-links {
-                justify-content: center;
+            .topbar {
+                display: block;
+                position: relative;
+                top: 0;
+                padding: 0.1rem 2rem;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
             }
 
             main {
+                width: fit-content;
+                margin-left: 0;
+                height: auto;
+                position: relative;
                 padding: 1rem;
-            }
-
-            #repository, #photography {
-                flex: 100%;
             }
         }
 
@@ -181,70 +203,102 @@
     </style>
 </head>
 <body>
-<header>
-    <h1>Hello !!</h1>
-</header>
-
 <div class="page-container">
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-section profile">
-            <h3>Soumya R.</h3>
-            <p>Software Engineer</p>
+            <h3>Soumya R. Maharana</h3>
+            <ul>
+                <li>Software Developer</li>
+                <li>Hobby Photographer</li>
+                <li>Roadtrip Enthusiast</li>
+            </ul>
+            <hr/>
         </div>
 
-        <div class="sidebar-section social-links">
-            <a href="https://github.com/soumyarm88" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/soumyarm88/" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:soumya.r.maharana@gmail.com" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
 
-        <div class="sidebar-section contact-info">
-            <h3>Contact</h3>
-            <p><i class="fas fa-envelope"></i> soumya.r.maharana@gmail.com</p>
-            <p><i class="fab fa-linkedin"></i> soumyarm88</p>
-        </div>
 
         <div class="sidebar-section table-of-contents">
-            <h3>Contents</h3>
             <ul>
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#repository">GitHub Repos</a></li>
-                <li><a href="#photography">Photography</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
+
+
+        <div class="sidebar-section contact-info">
+            <hr/>
+            <p>
+                <a href="https://github.com/soumyarm88" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                    github.com/soumyarm88
+                </a>
+            </p>
+            <p> <a href="https://www.linkedin.com/in/soumyarm88/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+                linkedin.com/in/soumyarm88
+            </a>
+            </p>
+            <p>
+                <a href="mailto:soumya.r.maharana@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                    soumya.r.maharana@gmail.com
+                </a>
+            </p>
+
+        </div>
+
     </aside>
 
+    <!-- Top bar -->
+    <nav class="topbar">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+            <h1>Soumya R. Maharana</h1>
+            <div class="social-links">
+                <a href="https://github.com/soumyarm88" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/soumyarm88/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:soumya.r.maharana@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+            <div style="border-right: 1px solid #eee; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                Coding
+            </div>
+            <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Photography</div>
+            <div style="border-left: 1px solid #eee; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                Roadtrip
+            </div>
+        </div>
+    </nav>
+
     <!-- Main Content -->
-    <main>
+    <main class="main-content">
         <section id="about">
             <h2>About Me</h2>
-            <!-- Existing about content -->
+            <div class="text-card">
+                <p>
+                    Hello! I'm Soumya.
+                </p>
+                <p>
+                    Software Engineer skilled in building resilient, scalable systems for enterprise identity and e-commerce platforms, with expertise in distributed architectures and AWS. Learning AI-ML with hands-on tutorials and projects. Currently working through Andrej Karpathy's Neural Networks: Zero to Hero.
+                </p>
+            </div>
         </section>
 
-        <div class="flex-container">
-            <section id="repository">
-                <h2>My <a href="https://github.com/soumyarm88">GitHub</a> Repos</h2>
-                <!-- Existing repository content -->
-            </section>
-            
-            <section id="photography">
-                <h2>My Photography</h2>
-                <!-- Existing photography content -->
-            </section>
-        </div>
+        <section id="repository">
+            <h2>GitHub Repos</h2>
+            <div id="github-repository"></div>
+        </section>
+
     </main>
 </div>
 
-<footer>
-    <p>&copy; tech.soumyarm88</p>
-</footer>
+
 </body>
 </html>

@@ -1,0 +1,40 @@
+{
+  "items": [
+    { "name": "House Price Predictor",
+      "url": "https://github.com/soumyarm88/house-price-predictor",
+      "description": "Simple app that predicts house prices using linear regression. Trained on Washington King county property data corpus. Leverages scikit-learn and FastAPI"
+    },
+    { "name": "Transformer",
+      "url": "https://github.com/soumyarm88/transformer",
+      "description": "A library to transform attribute-based objects between different representations like SCIM, LDIF, etc. Kotlin + Gradle."
+    },
+    { "name": "FormFill",
+      "url": "https://github.com/soumyarm88/formfill-extension",
+      "description": "A Chrome browser extension that lets you quickly populate HTML text fields with preset values. It can save, edit, and delete frequently used text entries as presets. It also supports bulk import and export of presets. It offers a one-click fill experience with visual feedback for efficiency and usability."
+    },
+    { "name": "Observer",
+      "url": "https://github.com/soumyarm88/observer",
+      "description": "Demonstrates lightweight method execution time logging with AOP."
+    },
+    { "name": "Blockchain",
+      "url": "https://github.com/soumyarm88/blockchain",
+      "description": "A simple implementation of blockchain data-structure."
+    },
+    { "name": "NN-zero-to-hero",
+      "url": "https://github.com/soumyarm88/nn-zero-to-hero",
+      "description": "personal fork of Andrej Karpathy's \"Neural Networks: Zero to Hero\" series for self-learning."
+    },
+    { "name": "DevEnv",
+      "url": "https://github.com/soumyarm88/devenv",
+      "description": "My personal configurations for Zsh, Vim, Git, and various command line apps. It helps me quickly set-up or reset my dev env."
+    },
+    { "name": "Tutorial",
+      "url": "https://github.com/soumyarm88/tutorial",
+      "description": "Tutorial for publishing packages in GitHub."
+    },
+    { "name": "Diagrams",
+      "url": "https://github.com/soumyarm88/diagrams",
+      "description": "Draw.io scripts."
+    }
+  ]
+}
